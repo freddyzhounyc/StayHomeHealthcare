@@ -1,0 +1,9 @@
+services:
+  postgres_db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "p3anutbutt3rgonebanana$!"
+    # ** Add volume for case if db goes down **
