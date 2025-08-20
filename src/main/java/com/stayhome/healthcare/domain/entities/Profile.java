@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -22,9 +23,21 @@ public class Profile {
     @Column(name = "profile_id", updatable = false, nullable = false)
     private UUID profileId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "account_id")
     private Account account;
+
+    // If NOT null then profile has role of "Patient"
+    @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Patient patient;
+
+    // If NOT null then profile has role of "Provider"
+    @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Provider provider;
+
+    // Possibly include pagination if retrieving all insurance companies from a particular profile
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Insurance> insurances;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
