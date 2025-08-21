@@ -22,7 +22,7 @@ public class Account {
     @Column(name = "account_id", updatable = false, nullable = false)
     private UUID accountId;
 
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private Profile profile;
 
     @Column(name = "username", nullable = false)
