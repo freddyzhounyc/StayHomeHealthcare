@@ -29,9 +29,8 @@ public class Insurance {
     @Column(name = "company_name", nullable = false)
     private String companyName;
 
-    // Possibly needs to be a String because id may be in a different format at different insurance companies
     @Column(name = "insurance_member_id", nullable = false)
-    private UUID insuranceMemberId;
+    private String insuranceMemberId;
 
     @Column(name = "expiration_date", nullable = false)
     private LocalDate expirationDate;
