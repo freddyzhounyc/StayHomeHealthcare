@@ -41,4 +41,7 @@ public class Patient {
     @OneToMany(mappedBy = "patient")
     private List<AppointmentLog> appointmentLogsList;
 
+    @OneToMany(mappedBy = "patient")
+    private List<Billing> billings;
+
 }

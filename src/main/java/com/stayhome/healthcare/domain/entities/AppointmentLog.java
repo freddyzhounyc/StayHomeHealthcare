@@ -30,10 +30,20 @@ public class AppointmentLog {
     @JoinColumn(name = "provider_id", nullable = false)
     private Provider provider;
 
-    @Column(name = "start_time_date", nullable = false)
-    private LocalDateTime startTimeDate;
+    @ManyToOne
+    @JoinColumn(name = "appointment", nullable = false)
+    private Appointment appointment;
 
-    @Column(name = "end_time_date", nullable = false)
-    private LocalDateTime endTimeDate;
+    @Column(name = "medical_log_from_patient", nullable = false)
+    private String medicalLogFromPatient;
+
+    @Column(name = "medical_log_from_provider", nullable = false)
+    private String medicalLogFromProvider;
+
+    @Column(name = "created", nullable = false)
+    private LocalDateTime created;
+
+    @Column(name = "lastUpdated", nullable = false)
+    private LocalDateTime lastUpdated;
 
 }

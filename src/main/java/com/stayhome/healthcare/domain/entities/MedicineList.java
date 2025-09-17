@@ -30,8 +30,8 @@ public class MedicineList {
     @Column(name = "medication", nullable = false)
     private String medication;
 
-    @Column(name = "dosage_measurement", nullable = false)
-    private String dosageMeasurement;
+    @Column(name = "dosage_unit", nullable = false)
+    private String dosageUnit;
 
     @Column(name = "dosage", nullable = false)
     private Double dosage;

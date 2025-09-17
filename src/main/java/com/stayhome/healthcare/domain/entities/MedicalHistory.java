@@ -1,5 +1,6 @@
 package com.stayhome.healthcare.domain.entities;
 
+import com.stayhome.healthcare.domain.entities.enums.BodySystem;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,8 +32,8 @@ public class MedicalHistory {
     @Enumerated(EnumType.STRING)
     private BodySystem bodySystem;
 
-    @Column(name = "body_description", nullable = false)
-    private String bodyDescription;
+    @Column(name = "med_history_description", nullable = false)
+    private String medHistoryDescription;
 
     @Column(name = "created", nullable = false)
     private LocalDate created;

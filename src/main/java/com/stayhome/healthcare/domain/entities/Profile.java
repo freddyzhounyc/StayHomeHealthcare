@@ -1,5 +1,6 @@
 package com.stayhome.healthcare.domain.entities;
 
+import com.stayhome.healthcare.domain.entities.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

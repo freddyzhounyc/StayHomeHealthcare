@@ -1,4 +1,4 @@
-package com.stayhome.healthcare.domain.entities;
+package com.stayhome.healthcare.domain.entities.enums;
 
 public enum MedicalExamType {
     BLOOD_PRESSURE,
