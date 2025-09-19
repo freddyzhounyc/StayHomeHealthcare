@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -22,7 +23,13 @@ public class Provider {
     private UUID providerId;
 
     @OneToOne
-    @JoinColumn(name = "profile_id")
+    @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
+
+    @OneToMany(mappedBy = "provider")
+    private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "provider")
+    private List<AppointmentLog> appointmentLogsList;
 
 }

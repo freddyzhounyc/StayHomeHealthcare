@@ -1,5 +1,6 @@
 package com.stayhome.healthcare.domain.entities;
 
+import com.stayhome.healthcare.domain.entities.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +25,7 @@ public class Profile {
     private UUID profileId;
 
     @OneToOne
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
     // If NOT null then profile has role of "Patient"
@@ -55,6 +56,7 @@ public class Profile {
     private String address;
 
     @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 }

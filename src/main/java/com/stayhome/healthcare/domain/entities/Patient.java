@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -22,7 +23,25 @@ public class Patient {
     private UUID patientId;
 
     @OneToOne
-    @JoinColumn(name = "profile_id")
+    @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MedicineList> medicineList;
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MedicalHistory> medicalHistory;
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MedicalRecord> medicalRecords;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "patient")
+    private List<AppointmentLog> appointmentLogsList;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Billing> billings;
 
 }

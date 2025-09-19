@@ -19,11 +19,11 @@ public class Insurance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "insurance_entry_id")
+    @Column(name = "insurance_entry_id", updatable = false, nullable = false)
     private UUID insuranceEntryId;
 
     @ManyToOne
-    @JoinColumn(name = "profile_id")
+    @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 
     @Column(name = "company_name", nullable = false)

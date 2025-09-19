@@ -14,7 +14,6 @@ import java.util.UUID;
 @Builder
 @Entity
 @Table(name = "accounts")
-// ** IMPLEMENT SPRING SECURITY **
 public class Account {
 
     @Id
@@ -25,10 +24,10 @@ public class Account {
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private Profile profile;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "password", nullable = false)
