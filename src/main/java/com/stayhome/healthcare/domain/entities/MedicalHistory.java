@@ -29,8 +29,7 @@ public class MedicalHistory {
     private Patient patient;
 
     @Column(name = "body_system", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private BodySystem bodySystem;
+    private String bodySystem;
 
     @Column(name = "med_history_description", nullable = false)
     private String medHistoryDescription;

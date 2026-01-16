@@ -32,8 +32,7 @@ public class MedicalRecord {
     private Double value;
 
     @Column(name = "medical_exam_type", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private MedicalExamType medicalExamType;
+    private String medicalExamType;
 
     @Column(name = "created", nullable = false)
     private LocalDate created;
