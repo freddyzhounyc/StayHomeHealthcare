@@ -29,7 +29,7 @@ public class MedicalHistory {
     private Patient patient;
 
     @Column(name = "body_system", nullable = false)
-    private String bodySystem;
+    private BodySystem bodySystem;
 
     @Column(name = "med_history_description", nullable = false)
     private String medHistoryDescription;

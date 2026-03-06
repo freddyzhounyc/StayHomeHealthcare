@@ -32,7 +32,7 @@ public class MedicalRecord {
     private Double value;
 
     @Column(name = "medical_exam_type", nullable = false)
-    private String medicalExamType;
+    private MedicalExamType medicalExamType;
 
     @Column(name = "created", nullable = false)
     private LocalDate created;
