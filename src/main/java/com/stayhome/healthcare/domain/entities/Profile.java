@@ -55,8 +55,4 @@ public class Profile {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "role", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
 }

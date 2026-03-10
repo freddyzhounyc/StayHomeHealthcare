@@ -2,7 +2,7 @@ services:
   postgres_db:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5432:5432" # TODO: Should not expose and should be in the .env
     restart: always
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
