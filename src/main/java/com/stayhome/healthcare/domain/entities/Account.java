@@ -53,10 +53,15 @@ public class Account implements UserDetails {
         return password;
     }
 
-    // Username will be email for security
+    // Username will be email for security  ** NOT ACTUAL WAY TO GET USERNAME ** (Used by Spring)
     @Override
     public String getUsername() {
         return email;
+    }
+
+    // ** ACTUAL WAY TO GET THE USER'S USERNAME **
+    public String getTheUsername() {
+        return username;
     }
 
     @Override
