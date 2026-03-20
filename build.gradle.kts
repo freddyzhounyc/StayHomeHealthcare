@@ -31,6 +31,7 @@ dependencies {
     implementation("io.jsonwebtoken:jjwt-impl:0.13.0")
     implementation("io.jsonwebtoken:jjwt-jackson:0.13.0")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.modelmapper:modelmapper:3.2.4")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
