@@ -1,6 +1,5 @@
 package com.stayhome.healthcare.domain.entities.enums;
 
-// TODO: DELETE
 public enum BodySystem {
     SKELETAL,
     MUSCULAR,
