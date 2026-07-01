@@ -68,4 +68,30 @@ public class AuthServiceImpl implements AuthService {
                 .build();
     }
 
+    @Override
+    public boolean verifyPassword(String password) {
+        if (password == null)
+            return false;
+        boolean hasReqLength = password.length() >= 8 && password.length() <= 50;
+        boolean hasLowercase = password.matches(".*[a-z].*");
+        boolean hasUppercase = password.matches(".*[A-Z].*");
+        boolean hasNumber = password.matches(".*[0-9].*");
+        boolean hasSpecial = password.matches(".*[!@#$%^&*(),.?\":{}|<>].*");
+        return hasReqLength && hasLowercase && hasUppercase && hasNumber && hasSpecial;
+    }
+
+    @Override
+    public boolean verifyEmail(String email) {
+        if (email == null)
+            return false;
+        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"); // ^[^\s@]+@[^\s@]+\.[^\s@]+$ (js/ts)
+    }
+
+    @Override
+    public boolean verifyUsername(String username) {
+        if (username == null)
+            return false;
+        return username.matches("^[a-zA-Z0-9_.]{3,20}$"); // ^[a-zA-Z0-9_.]{3,20}$
+    }
+
 }
