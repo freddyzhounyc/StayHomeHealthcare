@@ -115,8 +115,8 @@ public class AuthControllerIntegrationTests {
         );
     }
     @Test
-    public void testThatRegisterDoesNotRegisterWithABadEmailA() throws Exception {
-        RegisterRequest request = TestDataUtil.createRegisterRequestWithBadEmailA();
+    public void testThatRegisterDoesNotRegisterWithAnEmailWithNoDomain() throws Exception {
+        RegisterRequest request = TestDataUtil.createRegisterRequestWithEmailWithNoDomain();
         String json = objectMapper.writeValueAsString(request);
 
         mockMvc.perform(
@@ -126,8 +126,8 @@ public class AuthControllerIntegrationTests {
         ).andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
     @Test
-    public void testThatRegisterDoesNotRegisterWithABadEmailB() throws Exception {
-        RegisterRequest request = TestDataUtil.createRegisterRequestWithBadEmailB();
+    public void testThatRegisterDoesNotRegisterWithAnEmailWithNoAt() throws Exception {
+        RegisterRequest request = TestDataUtil.createRegisterRequestWithEmailWithNoAt();
         String json = objectMapper.writeValueAsString(request);
 
         mockMvc.perform(
@@ -137,8 +137,31 @@ public class AuthControllerIntegrationTests {
         ).andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
     @Test
-    public void testThatRegisterDoesNotRegisterWithABadEmailC() throws Exception {
-        RegisterRequest request = TestDataUtil.createRegisterRequestWithBadEmailC();
+    public void testThatRegisterDoesNotRegisterWithAnEmailWithNoPeriod() throws Exception {
+        RegisterRequest request = TestDataUtil.createRegisterRequestWithEmailWithNoPeriod();
+        String json = objectMapper.writeValueAsString(request);
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.post("/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json)
+        ).andExpect(MockMvcResultMatchers.status().isBadRequest());
+    }
+    @Test
+    public void testThatRegisterDoesNotRegisterWithAnEmailWithEntireDomainMissing() throws Exception {
+        RegisterRequest request = TestDataUtil.createRegisterRequestWithEmailWithEntireDomainMissing();
+        String json = objectMapper.writeValueAsString(request);
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.post("/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json)
+        ).andExpect(MockMvcResultMatchers.status().isBadRequest());
+    }
+    @Test
+    public void testThatRegisterDoesNotRegisterWithANullEmail() throws Exception {
+        RegisterRequest request = TestDataUtil.createRegisterRequestWithEmailWithEntireDomainMissing();
+        request.setEmail(null);
         String json = objectMapper.writeValueAsString(request);
 
         mockMvc.perform(

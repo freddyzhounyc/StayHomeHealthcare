@@ -33,10 +33,10 @@ public class AuthController {
         // Create cookie
         ResponseCookie cookie = ResponseCookie.from("token", token)
                 .httpOnly(true)
-                .secure(true)
+                .secure(true) // TODO: SET TO TRUE FOR PRODUCTION (false for development)
                 .sameSite("Lax") // csrf
                 .maxAge(60 * 60 * 24) // 24-hour lifespan
-                .path("/api") // to be sent to all paths
+                .path("/") // cookie to be accepted by all paths, so it can be stored
                 .build();
 
         // Create headers

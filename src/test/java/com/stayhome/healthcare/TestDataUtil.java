@@ -48,7 +48,7 @@ public class TestDataUtil {
                 .role(Role.PATIENT)
                 .build();
     }
-    public static RegisterRequest createRegisterRequestWithBadEmailA() {
+    public static RegisterRequest createRegisterRequestWithEmailWithNoDomain() {
         return RegisterRequest.builder()
                 .username("myUser")
                 .email("myUser@gmail")
@@ -56,7 +56,7 @@ public class TestDataUtil {
                 .role(Role.PATIENT)
                 .build();
     }
-    public static RegisterRequest createRegisterRequestWithBadEmailB() {
+    public static RegisterRequest createRegisterRequestWithEmailWithNoAt() {
         return RegisterRequest.builder()
                 .username("myUser")
                 .email("myUsergmail.com")
@@ -64,10 +64,18 @@ public class TestDataUtil {
                 .role(Role.PATIENT)
                 .build();
     }
-    public static RegisterRequest createRegisterRequestWithBadEmailC() {
+    public static RegisterRequest createRegisterRequestWithEmailWithNoPeriod() {
         return RegisterRequest.builder()
                 .username("myUser")
                 .email("myUser@gmailcom")
+                .password("myPa$$w0rd")
+                .role(Role.PATIENT)
+                .build();
+    }
+    public static RegisterRequest createRegisterRequestWithEmailWithEntireDomainMissing() {
+        return RegisterRequest.builder()
+                .username("myUser")
+                .email("myUser")
                 .password("myPa$$w0rd")
                 .role(Role.PATIENT)
                 .build();
